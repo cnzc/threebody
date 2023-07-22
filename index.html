@@ -1,40 +1,82 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>ThreeBody</title>
-        <script src="js/public/three/three.js" data-ke-src="public/three/three.js"></script>
-        <script src="js/public/three/stats.min.js"></script>
-        <script src="js/public/three/OrbitControls.js"></script>
-        <script src="js/public/three/ammo.js"></script>
-        <script src="js/public/three/physi.js"></script>
-        <script src="js/public/three/physijs_worker.js"></script>
-        <script src="js/public/libs/jquery-1.12.4.min.js"></script>
-        <script src="js/public/libs/jquery.cookie.js"></script>
-        <script src="js/public/libs/inflate.min.js"></script>
-        <script src="js/public/libs/simplex-noise.js"></script>
-        <script src="js/public/libs/tween.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>《三体游戏》</title>
+    <link rel="shortcut icon" href="img/logo.png">
+    <style>
+        body {
+            background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("img/bg.jpg");
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            background-blend-mode: multiply;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			z-index: 1;
+	    	top: 0;
+	    	left: 0;
+            width: 98%;
+		    height: 98.35vh;
+            
+        }
 
-        <style type="text/css">
-            div#canvas-frame {
-                border: none;
-                cursor: pointer;
-                width: 100%;
-                height: 100%;
-                background-color: #EEEEEE;
-            }
-        </style>
-        <script src="js/GameLogicController.js"></script>
-        <script src="js/Aster.js"></script>
-        <script src="js/GLScene.js"></script>
-        <script src="js/AsterFactory.js"></script>
-        <script src="js/Universe.js"></script>
-        <script src="js/Utils.js"></script>
-        <script src="js/DataLoader.js"></script>
-        <script src="js/threebody.js"></script>
-    </head>
+        .centered-text {
+            text-align: center;
+        }
 
-    <body onload="main();" onkeypress="onKeyPress(event)">
-        <div id="canvas-frame"></div>
-    </body>
+        .button {
+  display: inline-block;
+  padding: 7px 12px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: 1px solid;
+  border-radius: 5px;
+  margin-top: 0;
+  margin-bottom: 3px;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  transition: background-color 0.1s;
+}
+
+.button:hover {
+  background-color: rgba(63, 63, 63, 0.7);
+}
+
+.button:active {
+  background-color: rgba(129, 129, 129, 0.7);
+}
+
+    </style>
+</head>
+<body>
+    <div class="centered-text">
+        <h1><img src="img/logo.png"></h1>
+        <p><btn class="button" onclick="start()">开始游戏</btn></p>
+        <p id="note" style="display: none;">该游戏只支持V装具方式</p>
+        <p id="note2" style="display: none;"><btn class="button" onclick="v()">获得V装具</btn></p>
+        <p id="v" style="display: none;color: yellow;">网站还在开发中,感谢体验.<br>By Innovate+</p>
+    </div>
+</body>
+<script>
+    function start()
+    {
+        document.getElementById("note").style.display=("block");
+        document.getElementById("note2").style.display=("block");
+    }
+    function v()
+    {
+        document.getElementById("v").style.display=("block");
+    }
+</script>
 </html>
